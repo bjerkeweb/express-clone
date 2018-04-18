@@ -1,17 +1,11 @@
-function routes() {
+let handlers = {};
 
-  let handlers = {};
-
-  function match( req ) {
-    return handlers[ req.url ];
-  }
-
-  function get( path, handler ) {
-    handlers[ path ] = handler;
-  }
-
-  return { get, match };
-
+function match( req ) {
+  return handlers[ req.url ];
 }
 
-module.exports = routes();
+function get( path, handler ) {
+  handlers[ path ] = handler;
+}
+
+module.exports = { match, get }
